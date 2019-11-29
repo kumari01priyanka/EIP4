@@ -1,6 +1,83 @@
 1. Final Accuracy on test data is: 77.75
 
 2. My Module Definition
+
+model = Sequential()
+model.add(SeparableConv2D(128, 3, 3, input_shape=(32, 32, 3)))
+model.add(BatchNormalization())
+model.add(Activation('relu'))
+model.add(Dropout(0.25))
+
+model.add(SeparableConv2D(64, 1, 1))
+model.add(SeparableConv2D(64, 3, 3))
+model.add(BatchNormalization())
+model.add(Activation('relu'))
+model.add(Dropout(0.25))
+
+model.add(SeparableConv2D(64, 1, 1))
+model.add(SeparableConv2D(64, 3, 3))
+model.add(BatchNormalization())
+model.add(Activation('relu'))
+model.add(Dropout(0.25))
+
+model.add(SeparableConv2D(64, 1, 1))
+model.add(SeparableConv2D(64, 3, 3))
+model.add(BatchNormalization())
+model.add(Activation('relu'))
+model.add(Dropout(0.25))
+model.add(SeparableConv2D(64, 1, 1))
+model.add(SeparableConv2D(64, 3, 3))
+model.add(BatchNormalization())
+model.add(Activation('relu'))
+model.add(Dropout(0.2))
+
+model.add(MaxPooling2D(pool_size=(2, 2)))
+
+model.add(SeparableConv2D(64, 1, 1))
+model.add(SeparableConv2D(64, 3, 3))
+model.add(BatchNormalization())
+model.add(Activation('relu'))
+model.add(Dropout(0.2))
+
+model.add(SeparableConv2D(64, 1, 1))
+model.add(SeparableConv2D(32, 3, 3))
+model.add(BatchNormalization())
+model.add(Activation('relu'))
+model.add(Dropout(0.2))
+
+model.add(SeparableConv2D(64, 1, 1))
+model.add(SeparableConv2D(64, 3, 3))
+model.add(BatchNormalization())
+model.add(Activation('relu'))
+model.add(Dropout(0.2))
+
+model.add(SeparableConv2D(64, 1, 1))
+model.add(SeparableConv2D(64, 3, 3))
+model.add(BatchNormalization())
+model.add(Activation('relu'))
+model.add(Dropout(0.2))
+
+model.add(SeparableConv2D(64, 1, 1))
+model.add(SeparableConv2D(64, 3, 3))
+model.add(BatchNormalization())
+model.add(Activation('relu'))
+model.add(Dropout(0.2))
+
+
+model.add(Flatten())
+model.add(Dense(64))
+model.add(Activation('relu'))
+model.add(Dropout(0.25))
+model.add(Dense(128))
+model.add(Activation('relu'))
+model.add(Dense(num_classes, activation='softmax'))
+
+model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
+model.summary()
+
+
+
+
 Model: "sequential_15"
 _________________________________________________________________
 Layer (type)                 Output Shape              Param #   
